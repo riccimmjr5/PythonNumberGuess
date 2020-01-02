@@ -1,0 +1,35 @@
+### Section 4 Problem Random Number Game
+
+import random
+
+numgames = '' 
+
+while numgames == '':
+    try:
+        numgames = int(input("How Many Games would you like to play? "))
+    except:
+        print("Please select a number")
+
+count = 1
+while (count <= numgames):
+    print ("Game Number: %s" % str(count))
+    from random import seed
+    from random import randint
+    value = randint(0,25)
+    
+    value = int(value)
+    
+    guess = -1
+    attempts = 0
+    while int(guess) != value:
+        guess = int(input('Enter your guess: '))
+        attempts += 1
+        if guess < value:
+            print(" Too Low")
+        elif guess > value:
+            print("Too high")
+        else:
+            print("Correct!!!, It took you %s guesses" % attempts)
+            break
+    count += 1
+print ("Games Over")
